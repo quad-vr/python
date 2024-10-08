@@ -10,13 +10,17 @@ pipeline:
         connectorRef: account.vrquad
         repoName: python
   stages:
-    - stage:
-        identifier: build
-        name: build
+    - step:
+        type: Run
+        identifier: build_python_app
+        name: Build Python App
         spec:
-          caching:
-            enabled: true
-          cloneCodebase: true
+          shell: Sh
+        command: |-
+          echo "Welcome to Harness CI"
+          python -m pip install --upgrade pip
+          pip install  pytest
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           execution:
             steps:
               - step:
@@ -56,4 +60,3 @@ pipeline:
           runtime:
             spec: {}
             type: Cloud
-        type: CI
