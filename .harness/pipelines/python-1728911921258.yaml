@@ -53,3 +53,25 @@ pipeline:
             spec: {}
             type: Cloud
         type: CI
+    - stage:
+        name: Run
+        identifier: Run
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Windows
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    shell: Python
+                    command: python setup.py
