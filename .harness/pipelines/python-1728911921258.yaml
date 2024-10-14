@@ -40,16 +40,16 @@ pipeline:
                   timeout: ""
                   type: Run
               - step:
-                  identifier: dockerbuild
-                  name: docker_build
+                  type: Run
+                  identifier: build_python_app
+                  name: Build Python App
                   spec:
-                    caching: true
-                    connectorRef: <+input>
-                    repo: hello/world
-                    tags:
-                      - latest
-                  timeout: ""
-                  type: BuildAndPushDockerRegistry
+                    shell: Sh
+                    command: |-
+                      echo "Welcome to Harness CI"
+                      python -m pip install --upgrade pip
+                      pip install  pytest
+                      if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           platform:
             arch: Amd64
             os: Linux
