@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_quad_vr_python_1728911929069-pr-trigger-input-set
+  identifier: Build_quad_vr_python_1728911929069prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Envi
+  pipeline:
+    identifier: Build_quad_vr_python_1728911929069
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
