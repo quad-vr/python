@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_quad_vr_python_1728911929069-push-trigger-input-set
+  identifier: Build_quad_vr_python_1728911929069pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: Envi
+  pipeline:
+    identifier: Build_quad_vr_python_1728911929069
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
