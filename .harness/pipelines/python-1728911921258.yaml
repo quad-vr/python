@@ -54,14 +54,14 @@ pipeline:
             type: Cloud
         type: CI
     - stage:
-        name: Run
-        identifier: Run
+        name: Test
+        identifier: Test
         description: ""
         type: CI
         spec:
           cloneCodebase: true
           platform:
-            os: Windows
+            os: Linux
             arch: Amd64
           runtime:
             type: Cloud
@@ -69,9 +69,11 @@ pipeline:
           execution:
             steps:
               - step:
-                  type: Run
-                  name: Run_1
-                  identifier: Run_1
+                  type: RunTests
+                  name: RunTests_1
+                  identifier: RunTests_1
                   spec:
-                    shell: Python
-                    command: python main.py
+                    language: Python
+                    buildTool: Unittest
+                    runOnlySelectedTests: true
+                    enableTestSplitting: false
