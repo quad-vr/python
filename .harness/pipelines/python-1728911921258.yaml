@@ -69,11 +69,20 @@ pipeline:
           execution:
             steps:
               - step:
-                  type: RunTests
-                  name: RunTests_1
-                  identifier: RunTests_1
+                  type: Run
+                  name: Test
+                  identifier: Test
                   spec:
-                    language: Python
-                    buildTool: Unittest
-                    runOnlySelectedTests: true
-                    enableTestSplitting: false
+                    shell: Sh
+                    command: |-
+                      # Install coverage if not already installed
+                      python3 -m pip install coverage
+
+                      # Run the tests and collect coverage data
+                      coverage run -m unittest discover
+
+                      # Generate a coverage report in the console
+                      coverage report
+
+                      # Optionally generate a coverage XML report
+                      coverage xml
