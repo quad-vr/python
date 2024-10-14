@@ -74,4 +74,4 @@ pipeline:
                   identifier: Run_1
                   spec:
                     shell: Python
-                    command: python setup.py
+                    command: python main.py
