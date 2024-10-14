@@ -45,12 +45,7 @@ pipeline:
                   name: Build Python App
                   spec:
                     shell: Sh
-                    command: |-
-                      echo "Welcome to Harness CI"
-                      python -m pip install --upgrade pip
-                      pip install  pytest
-                      pip install blinker
-                      if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+                    command: echo "Welcome to Harness CI"
           platform:
             arch: Amd64
             os: Linux
