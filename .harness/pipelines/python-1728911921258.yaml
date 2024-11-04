@@ -27,7 +27,6 @@ pipeline:
                     command: |-
                       pip install flake8
                       flake8 .
-                      RUN pip config set global.cert /etc/ssl/certs/ca-certificates.crt
                   timeout: ""
                   type: Run
               - step:
