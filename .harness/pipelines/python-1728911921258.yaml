@@ -76,6 +76,7 @@ pipeline:
                   spec:
                     shell: Sh
                     command: |-
+                      RUN pip config set global.cert /etc/ssl/certs/ca-certificates.crt
                       # Install coverage if not already installed
                       python3 -m pip install coverage
 
