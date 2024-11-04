@@ -23,9 +23,11 @@ pipeline:
                   identifier: runlinter
                   name: run linter
                   spec:
+                    shell: Sh
                     command: |-
                       pip install flake8
                       flake8 .
+                      RUN pip config set global.cert /etc/ssl/certs/ca-certificates.crt
                   timeout: ""
                   type: Run
               - step:
@@ -47,11 +49,11 @@ pipeline:
                     shell: Sh
                     command: echo "Welcome to Harness CI"
           platform:
-            arch: Amd64
             os: Linux
+            arch: Amd64
           runtime:
-            spec: {}
             type: Cloud
+            spec: {}
         type: CI
     - stage:
         name: Test
