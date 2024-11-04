@@ -114,3 +114,12 @@ pipeline:
                     advanced:
                       log:
                         level: info
+              - step:
+                  type: BuildAndPushDockerRegistry
+                  name: BuildAndPushDockerRegistry_1
+                  identifier: BuildAndPushDockerRegistry_1
+                  spec:
+                    connectorRef: account.harnessImage
+                    repo: vsr03/harness_test1
+                    tags:
+                      - latest
