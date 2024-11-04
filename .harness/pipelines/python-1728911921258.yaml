@@ -116,6 +116,13 @@ pipeline:
                       log:
                         level: info
               - step:
+                  type: Run
+                  name: Install dependencies
+                  identifier: Install_dependencies
+                  spec:
+                    shell: Sh
+                    command: RUN pip install --upgrade --no-cache-dir pip setuptools wheel
+              - step:
                   type: BuildAndPushDockerRegistry
                   name: BuildAndPushDockerRegistry_1
                   identifier: BuildAndPushDockerRegistry_1
