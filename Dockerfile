@@ -1,8 +1,17 @@
 FROM python:3.5.1-alpine
 MAINTAINER Greg Taylor <gtaylor@gc-taylor.com>
 
-RUN pip config --global set cert /etc/ssl/certs/ca-certificates.crt
+FROM python:3.10-slim
+
+# Install necessary dependencies
+RUN apt-get update && apt-get install -y python3-pip ca-certificates
+
+# Update pip, setuptools, and wheel
+RUN pip install --upgrade --no-cache-dir pip setuptools wheel
+
+# Set custom certificate path in pip config
 RUN pip config set global.cert /etc/ssl/certs/ca-certificates.crt
+
 RUN pip install --upgrade pip setuptools wheel
 COPY wheeldir /opt/app/wheeldir
 # These are copied and installed first in order to take maximum advantage
