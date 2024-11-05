@@ -121,6 +121,6 @@ pipeline:
                   identifier: BuildAndPushDockerRegistry_1
                   spec:
                     connectorRef: Docker_Connector
-                    repo: docker pull vsr03/harness_test1
+                    repo: docker.io/username/vsr03/harness_test1
                     tags:
                       - latest
