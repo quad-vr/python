@@ -19,7 +19,7 @@ RUN pip install --upgrade pip setuptools wheel
 # These are copied and installed first in order to take maximum advantage
 # of Docker layer caching (if enabled).
 COPY *requirements.txt /opt/app/src/
-RUN pip install --no-index --find-links=/opt/app/wheeldir -r /opt/app/src/requirements.txt
+#RUN pip install --no-index --find-links=/opt/app/wheeldir -r /opt/app/src/requirements.txt
 
 COPY . /opt/app/src/
 WORKDIR /opt/app/src
