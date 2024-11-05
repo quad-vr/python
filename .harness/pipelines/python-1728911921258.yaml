@@ -120,7 +120,7 @@ pipeline:
                   name: BuildAndPushDockerRegistry_1
                   identifier: BuildAndPushDockerRegistry_1
                   spec:
-                    connectorRef: Docker_Connector
-                    repo: vsr03/harness_test1:tagname
+                    connectorRef: account.harnessImage
+                    repo: vsr03/harness_test1
                     tags:
                       - latest
