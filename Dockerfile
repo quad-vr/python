@@ -16,7 +16,7 @@ RUN pip install --upgrade --no-cache-dir pip setuptools wheel
 RUN pip config set global.cert /etc/ssl/certs/ca-certificates.crt
 
 RUN pip install --upgrade pip setuptools wheel
-COPY wheeldir /opt/app/wheeldir
+wheeldir /opt/app/wheeldir
 # These are copied and installed first in order to take maximum advantage
 # of Docker layer caching (if enabled).
 COPY *requirements.txt /opt/app/src/
