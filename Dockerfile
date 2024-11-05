@@ -1,6 +1,9 @@
 FROM python:3.5.1-alpine
 MAINTAINER Greg Taylor <gtaylor@gc-taylor.com>
 
+# Create the wheeldir directory
+RUN mkdir -p /opt/app/wheeldir
+
 FROM python:3.10-slim
 
 # Install necessary dependencies
